@@ -160,3 +160,15 @@
     height: 34px !important;
     outline: none !important;
 }
+
+td.class {
+    word-break: break-all;
+}
+
+td.cron {
+    white-space: nowrap;
+}
+
+td.lastexec button, td.nextexec button {
+    white-space: normal;
+}

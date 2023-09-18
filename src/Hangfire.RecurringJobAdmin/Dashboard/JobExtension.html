@@ -125,29 +125,29 @@
                     </thead>
                     <tbody>
                         <tr v-for="job in getItems">
-                            <td>{{job.Id}}</td>
-                            <td>{{job.Cron}}</td>
-                            <td>{{job.Queue}}</td>
-                            <td>
+                            <td class="jobid">{{job.Id}}</td>
+                            <td class="cron">{{job.Cron}}</td>
+                            <td class="queue">{{job.Queue}}</td>
+                            <td class="state">
                                 <span v-if="job.JobState == 'Running'" class="label label-success">{{job.JobState}}</span>
                                 <span v-if="job.JobState == 'Stopped'" class="label label-danger">{{job.JobState}}</span>
                             </td>
-                            <td>{{job.Class}}</td>
-                            <td>{{job.Method}}</td>
-                            <td>{{job.TimeZoneId}}</td>
-                            <td>
+                            <td class="class">{{job.Class}}</td>
+                            <td class="method">{{job.Method}}</td>
+                            <td class="timezone">{{job.TimeZoneId}}</td>
+                            <td class="lastexec">
                                 <button type="button" class="btn btn-primary">
                                     {{getTime(job.LastExecution)}}&nbsp;&nbsp;
                                     <span class="badge" style="width: 124px;">{{capitalizeString(dayjs().from(dayjs(job.LastExecution)))}}</span>
                                 </button>
                             </td>
-                            <td>
+                            <td class="nextexec">
                                 <button type="button" class="btn btn-primary">
                                     {{getTime(job.NextExecution)}}&nbsp;&nbsp;
                                     <span class="badge" style="width: 124px;">{{capitalizeString(dayjs().to(dayjs(job.NextExecution)))}}</span>
                                 </button>
                             </td>
-                            <td>
+                            <td class="options">
                                 <button type="button" class="btn btn-warning" style="padding-top: 10px; margin-right: 5px;">
                                     <svg width="18px" height="18px" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" @click="GetJob(job.Id)">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
