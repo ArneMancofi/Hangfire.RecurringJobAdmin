@@ -14,14 +14,25 @@
 
   <PropertyGroup>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-      <Authors>Brayan Mota</Authors>
+      <Authors>Brayan Mota, Arne Glenstrup</Authors>
       <Copyright>Copyright © 2020-present Hangfire.Extension contributors</Copyright>
       <NeutralLanguage>en</NeutralLanguage>
-      <PackageProjectUrl>https://github.com/bamotav/Hangfire.RecurringJobAdmin.git</PackageProjectUrl>
-      <RepositoryUrl>https://github.com/bamotav/Hangfire.RecurringJobAdmin.git</RepositoryUrl>
-      <Version>1.0.0</Version>
+      <PackageProjectUrl>https://github.com/ArneMancofi/Hangfire.RecurringJobAdmin.git</PackageProjectUrl>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+      <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+      <RepositoryUrl>https://github.com/ArneMancofi/Hangfire.RecurringJobAdmin.git</RepositoryUrl>
+      <Version>1.0.6</Version>
       <PackOnBuild>true</PackOnBuild>
       <Description>A dashboard to manage Hangfire's recurring jobs.</Description>
+      <Title>Hangfire Recurring Job Admin Dashboard extension</Title>
+      <PackageReleaseNotes>* Support job methods returning Task&lt;TReturn&gt;
+* Improve line breaking</PackageReleaseNotes>
+      <PackageId>PFA.Hangfire.RecurringJobAdmin</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>bin\Release\Hangfire.RecurringJobAdmin.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -86,8 +97,23 @@
 
   <ItemGroup>
     <PackageReference Include="Cronos" Version="0.7.0" />
-    <PackageReference Include="HangFire.Core" Version="1.8.5" />
+    <PackageReference Include="HangFire.Core" Version="1.7.12" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\..\README.md" pack="true" PackagePath=".">
+      <Link>README.md</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt" pack="true" PackagePath=".">
+      <Link>LICENSE.txt</Link>
+    </None>
   </ItemGroup>
 
 </Project>
